@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
             $table->float('price');
             $table->float('discount');
-            $table->boolean('tx_status',100)->nullable();
+            $table->boolean('tx_status')->nullable();
             $table->mediumText('err_mssg');
             $table->dateTime('payment_date');
 

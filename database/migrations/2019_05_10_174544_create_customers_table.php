@@ -20,11 +20,7 @@ class CreateCustomersTable extends Migration
             $table->string('email')->unique();
             $table->mediumText('address1');
             $table->mediumText('address2')->nullable();
-            $table->text('city');
-            $table->text('state');
-            $table->integer('postal_code');
-            $table->text('country');
-            $table->integer('phone_no');
+            $table->text('phone_no');
         });
     }
 
