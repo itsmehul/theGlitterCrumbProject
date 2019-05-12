@@ -20,8 +20,8 @@ class CreateOrderDetailsTable extends Migration
             $table->float('price');
             $table->float('discount')->nullable();
             $table->float('total');
-            $table->string('size', 100)->nullable();
-            $table->string('color', 100)->nullable();
+            $table->json('size')->nullable();
+            $table->json('color')->nullable();
 
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');

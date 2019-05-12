@@ -1,0 +1,68 @@
+###CUSTOMERS
+POST http://theglittercrumb.test/api/customers HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Jahaan Noble",
+    "email":"jnobs@gmail.com",
+    "address1":"Flat 5, Makani Manor, Peddar, Mumbai",
+    "phone_no":"7977522521"
+}
+
+###
+GET http://theglittercrumb.test/api/customers HTTP/1.1
+
+###
+GET http://theglittercrumb.test/api/customers/301 HTTP/1.1
+
+###s
+DELETE http://theglittercrumb.test/api/customers/2 HTTP/1.1
+
+
+###PRODUCTS
+GET http://theglittercrumb.test/api/products HTTP/1.1
+
+###
+POST http://theglittercrumb.test/api/products HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Kaya",
+    "description":"Skin Care product",
+    "price":324,
+    "available_colors":"[\"red\",\"green\"]",
+    "available_sizes":"[\"xl\",\"m\"]",
+    "discount":0.50,
+    "image":"https://shop.kaya.in/sites/default/files/styles/slider_thumb/public/KAYA-YOUTH-PROTECT-SUNSCREEN-SPF-50-Tube-01%20-%20resized.jpg?itok=cMgnTzV7",
+    "stock":5
+}
+
+###
+GET http://theglittercrumb.test/api/products HTTP/1.1
+
+###ORDERS and ORDERDETAILS
+POST http://theglittercrumb.test/api/orders HTTP/1.1
+content-type: application/json
+
+{
+    "customer_id":2,
+    "order_details":[{
+        "product_id": 7,
+        "quantity_ordered":2,
+        "size":"[\"xl\",\"m\"]",
+        "color":"[\"red\",\"green\"]"
+    },{
+        "product_id": 6,
+        "quantity_ordered":4,
+        "size":"[\"xl\",\"m\"]",
+        "color":"[\"red\",\"green\"]"
+    },{
+        "product_id": 2,
+        "quantity_ordered":1,
+        "size":"[\"xl\",\"m\"]",
+        "color":"[\"red\",\"green\"]"
+    }]
+}
+
+###
+GET http://theglittercrumb.test/api/order-details HTTP/1.1

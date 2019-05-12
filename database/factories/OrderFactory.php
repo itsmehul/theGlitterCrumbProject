@@ -7,9 +7,10 @@ use Faker\Generator as Faker;
 
 $factory->define(Order::class, function (Faker $faker) {
     return [
-            'price'=>$faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 5),
-            'discount'=>$faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 1.00),
+            'total'=>$faker->randomFloat(2,0,10000),
+            'saved'=>$faker->randomFloat(2,0,3000),
             'tx_status'=>$faker->boolean(80),
+            'tx_id'=>$faker->randomNumber(NULL,false),
             'err_mssg'=>$faker->text(200) ,
             'payment_date'=>$faker->dateTime('now'),
             'customer_id'=>factory(App\Customer::class)->create(),

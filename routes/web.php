@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//FIXME: This callback may need to be in api.php
+//Paytm callback url
+Route::post('/paytm-callback', 'API\OrderController@paytmCallback');
