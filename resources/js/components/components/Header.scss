@@ -1,0 +1,33 @@
+.title {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+
+.main_nav {
+    display: flex;
+    justify-content: center;
+    span {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        width: 2px;
+        background-color: black;
+    }
+    a{
+        padding-left: 5px;
+        padding-right: 5px;
+        opacity: 0.6;
+        span{
+            color: black;
+            background: inherit;
+        }
+    }
+    a:hover{
+        opacity: 1;
+        background-color: rgb(187, 175, 175);
+    }
+    &:hover{
+        span{
+        margin: 0px;}
+    }
+}
