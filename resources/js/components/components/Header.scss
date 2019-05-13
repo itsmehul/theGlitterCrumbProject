@@ -14,8 +14,8 @@
         background-color: black;
     }
     a{
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
         opacity: 0.6;
         span{
             color: black;
@@ -25,6 +25,14 @@
     a:hover{
         opacity: 1;
         background-color: rgb(187, 175, 175);
+    }
+    a:hover:nth-child(1){
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+    }
+    a:hover:nth-child(3){
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
     }
     &:hover{
         span{

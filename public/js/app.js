@@ -6520,7 +6520,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".title {\n  text-align: center;\n  font-family: \"Times New Roman\", Times, serif;\n  font-size: 40px;\n}\n\n.main_nav {\n  display: flex;\n  justify-content: center;\n}\n.main_nav span {\n  margin-top: 5px;\n  margin-bottom: 5px;\n  width: 2px;\n  background-color: black;\n}\n.main_nav a {\n  padding-left: 5px;\n  padding-right: 5px;\n  opacity: 0.6;\n}\n.main_nav a span {\n  color: black;\n  background: inherit;\n}\n.main_nav a:hover {\n  opacity: 1;\n  background-color: #bbafaf;\n}\n.main_nav:hover span {\n  margin: 0px;\n}", ""]);
+exports.push([module.i, ".title {\n  text-align: center;\n  font-family: \"Times New Roman\", Times, serif;\n  font-size: 40px;\n}\n\n.main_nav {\n  display: flex;\n  justify-content: center;\n}\n.main_nav span {\n  margin-top: 5px;\n  margin-bottom: 5px;\n  width: 2px;\n  background-color: black;\n}\n.main_nav a {\n  padding-left: 8px;\n  padding-right: 8px;\n  opacity: 0.6;\n}\n.main_nav a span {\n  color: black;\n  background: inherit;\n}\n.main_nav a:hover {\n  opacity: 1;\n  background-color: #bbafaf;\n}\n.main_nav a:hover:nth-child(1) {\n  border-top-left-radius: 25px;\n  border-bottom-left-radius: 25px;\n}\n.main_nav a:hover:nth-child(3) {\n  border-top-right-radius: 25px;\n  border-bottom-right-radius: 25px;\n}\n.main_nav:hover span {\n  margin: 0px;\n}", ""]);
 
 // exports
 
