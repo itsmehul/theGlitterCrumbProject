@@ -15,6 +15,10 @@
 Route::get('/{page?}', function () {
     return view('welcome');
 });
+//To fix refresh problems in product details
+Route::get('/shop/{id?}', function () {
+    return view('welcome');
+});
 
 //FIXME: This callback may need to be in api.php
 //Paytm callback url

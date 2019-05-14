@@ -1,12 +1,16 @@
+@import '../../../sass/app.scss';
+
 .title {
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    // font-family: 'Times New Roman', Times, serif;
     font-size: 40px;
+    font-family: 'Lobster Two', cursive;
 }
 
 .main_nav {
     display: flex;
     justify-content: center;
+    margin-bottom: 2em;
     span {
         margin-top: 5px;
         margin-bottom: 5px;
@@ -24,7 +28,7 @@
     }
     a:hover{
         opacity: 1;
-        background-color: rgb(187, 175, 175);
+        background-color: rgb(173, 167, 136);
     }
     a:hover:nth-child(1){
         border-top-left-radius: 25px;

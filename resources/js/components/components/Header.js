@@ -1,16 +1,19 @@
 import React, { Component } from "react"
 import "./Header.scss"
-import { NavLink } from "react-router-dom"
+import { NavLink, withRouter } from "react-router-dom"
 
-export default class Header extends Component {
+
+class Header extends Component {
     render() {
+        console.log(this.props)
         return (
             <div>
-                <div className="title">theGlitterCrumb</div>
+                <div className="title">theGlitterCrumb
+                <span>{(this.props.location.pathname==="/shop")?'Shop':'Blog'}</span>
+                </div>
                 <div className="main_nav">
                     <NavLink
-                        exact
-                        to="/"
+                        to="/shop"
                         className="ptr"
                         activeStyle={{
                             fontWeight: "bold",
@@ -45,3 +48,5 @@ export default class Header extends Component {
         )
     }
 }
+
+export default withRouter(Header);
