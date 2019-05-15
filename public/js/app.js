@@ -6540,7 +6540,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".shop_grid {\n  margin-left: auto;\n  margin-right: auto;\n  display: grid;\n  max-width: 1380px;\n  gap: 1em;\n  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n  grid-auto-flow: row dense;\n  place-items: center center;\n}\n\n.product_card {\n  cursor: pointer;\n  /* Makes the triangle */\n  /* Makes the circle */\n}\n.product_card:hover .thumbnail > div {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  transition: -webkit-transform 2s;\n  transition: transform 2s;\n  transition: transform 2s, -webkit-transform 2s;\n}\n.product_card .thumbnail {\n  width: 100%;\n  height: 200px;\n  overflow: hidden;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n}\n.product_card .thumbnail:hover {\n  box-shadow: 0 8px 16px 2px rgba(0, 0, 0, 0.514);\n  transition: box-shadow 2s;\n}\n.product_card .thumbnail div {\n  height: 200px;\n  width: 100%;\n  background-size: \"cover\";\n  background-position: center;\n}\n.product_card .product_card_body {\n  display: flex;\n}\n.product_card .product_card_body p {\n  padding-left: 1em;\n  padding-top: 1em;\n}\n.product_card .tag {\n  position: relative;\n  left: 25px;\n  bottom: 5px;\n  margin-left: auto;\n  display: inline-block;\n  -webkit-transform: rotate(20deg);\n          transform: rotate(20deg);\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: auto;\n  height: 28px;\n  background-color: #c3083f;\n  border-radius: 3px 4px 4px 3px;\n  border-left: 1px solid #c3083f;\n  /* This makes room for the triangle */\n  margin-left: 19px;\n  position: relative;\n  color: white;\n  font-weight: 300;\n  font-family: \"Source Sans Pro\", sans-serif;\n  font-size: 22px;\n  line-height: 28px;\n  padding: 0 10px 0 10px;\n}\n.product_card .tag:before {\n  content: \"\";\n  position: absolute;\n  display: block;\n  left: -19px;\n  width: 0;\n  height: 0;\n  border-top: 14px solid transparent;\n  border-bottom: 14px solid transparent;\n  border-right: 19px solid #c3083f;\n}\n.product_card .tag:after {\n  content: \"\";\n  background-color: whitesmoke;\n  border-radius: 50%;\n  width: 4px;\n  height: 4px;\n  display: block;\n  position: absolute;\n  left: -9px;\n  top: 12px;\n}", ""]);
+exports.push([module.i, ".shop_grid {\n  margin-left: auto;\n  margin-right: auto;\n  display: grid;\n  max-width: 1380px;\n  gap: 1em;\n  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n  grid-auto-flow: row dense;\n  place-items: center center;\n}\n\n.product_card {\n  cursor: pointer;\n}\n.product_card:hover .thumbnail > div {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  transition: -webkit-transform 2s;\n  transition: transform 2s;\n  transition: transform 2s, -webkit-transform 2s;\n}\n.product_card .thumbnail {\n  width: 320px;\n  height: 200px;\n  overflow: hidden;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n}\n.product_card .thumbnail:hover {\n  box-shadow: 0 8px 16px 2px rgba(0, 0, 0, 0.514);\n  transition: box-shadow 2s;\n}\n.product_card .thumbnail div {\n  height: 200px;\n  width: 100%;\n  background-size: \"cover\";\n  background-position: center;\n}\n.product_card .product_card_body {\n  display: flex;\n  padding: 1em;\n  justify-content: space-between;\n}", ""]);
 
 // exports
 
@@ -66708,22 +66708,26 @@ var Shop = function Shop() {
         height: "280px"
       }
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "thumbnail",
-      style: {
-        width: "100%",
-        height: "200px",
-        overflow: "hidden",
-        borderRadius: "5px"
-      }
+      className: "thumbnail"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       style: {
         backgroundImage: "url(".concat(e.image, ")")
       }
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "product_card_body"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, e.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "tag"
-    }, "\u20B9", e.price)));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, e.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, e.discount < 1 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      style: {
+        textDecoration: "line-through"
+      }
+    }, "\u20B9", e.price)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      style: {
+        fontWeight: 'bold'
+      }
+    }, "\u20B9", (e.discount * e.price).toFixed(2))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      style: {
+        fontWeight: 'bold'
+      }
+    }, "\u20B9", e.price))));
   }));
 };
 

@@ -83,7 +83,7 @@ const Shop = () => {
                 console.log(error)
             })
     }, [])
-console.log(typeof(products))
+    console.log(typeof products)
     if (loading) return <div>Loading...</div>
     return (
         <div className="shop_grid">
@@ -94,23 +94,31 @@ console.log(typeof(products))
                         key={i}
                         className="product_card"
                         style={{ width: "320px", height: "280px" }}>
-                        {/* <div > */}
-                        <div
-                            className="thumbnail"
-                            style={{
-                                width: "100%",
-                                height: "200px",
-                                overflow: "hidden",
-                                borderRadius: "5px"
-                            }}>
+                        <div className="thumbnail">
                             <div
                                 style={{ backgroundImage: `url(${e.image})` }}
                             />
                         </div>
                         <div className="product_card_body">
-                            <p>{e.name}</p>
-                            <span className="tag">₹{e.price}</span>
-                            {/* </div> */}
+                            <p >{e.name}</p>
+                            <div>
+                                {e.discount < 1 ? (
+                                    <React.Fragment>
+                                        <p
+                                            ><span style={{
+                                                textDecoration: "line-through"
+                                            }}>₹{e.price}</span>
+                                              {/* <span style={{backgroundColor:'red'}}>-{Math.trunc((1-e.discount)*100)}%OFF</span> */}
+
+                                        </p>
+                                        <p style={{fontWeight:'bold'}}>
+                                            ₹{(e.discount * e.price).toFixed(2)}
+                                        </p>
+                                    </React.Fragment>
+                                ) : (
+                                    <p style={{fontWeight:'bold'}}>₹{e.price}</p>
+                                )}
+                            </div>
                         </div>
                     </Link>
                 )
