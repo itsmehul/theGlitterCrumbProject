@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 const Shop = () => {
     const defaultValue = true
     const [loading, setLoading] = useState(defaultValue)
+    const [products, setProducts] = useState([])
 
     let images = [
         {
@@ -75,32 +76,42 @@ const Shop = () => {
         axios
             .get("/api/products")
             .then(function(response) {
-                // setTimeout(() => {
-                //     console.log(response)
-                // }, 3000)
+                setProducts(response.data.data)
                 setLoading(false)
             })
             .catch(function(error) {
                 console.log(error)
             })
     }, [])
-
-    console.log(loading)
-
+console.log(typeof(products))
     if (loading) return <div>Loading...</div>
     return (
         <div className="shop_grid">
-            {images.map((e,i) => {
+            {products.map((e, i) => {
                 return (
-                    <Link to='/shop/2313' key={i}>
-                    <div className="product_card" style={{ width: "320px", height: "280px" }}>
-                        <div className="thumbnail" style={{width: "320px", height: "200px", overflow:'hidden', borderRadius:'5px'}}>
-                        <div  style={{ backgroundImage: `url(${e.url})` }} />
+                    <Link
+                        to="/shop/2313"
+                        key={i}
+                        className="product_card"
+                        style={{ width: "320px", height: "280px" }}>
+                        {/* <div > */}
+                        <div
+                            className="thumbnail"
+                            style={{
+                                width: "100%",
+                                height: "200px",
+                                overflow: "hidden",
+                                borderRadius: "5px"
+                            }}>
+                            <div
+                                style={{ backgroundImage: `url(${e.image})` }}
+                            />
                         </div>
                         <div className="product_card_body">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        <span class="tag">₹2800</span></div>
-                    </div>
+                            <p>{e.name}</p>
+                            <span className="tag">₹{e.price}</span>
+                            {/* </div> */}
+                        </div>
                     </Link>
                 )
             })}

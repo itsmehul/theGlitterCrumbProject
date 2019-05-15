@@ -1,10 +1,10 @@
-@import '../../../sass/app.scss';
+@import "../../../sass/app.scss";
 
 .title {
     text-align: center;
     // font-family: 'Times New Roman', Times, serif;
     font-size: 40px;
-    font-family: 'Lobster Two', cursive;
+    font-family: "Lobster Two", cursive;
 }
 
 .main_nav {
@@ -12,34 +12,36 @@
     justify-content: center;
     margin-bottom: 2em;
     span {
+        font-family: "Raleway", sans-serif;
         margin-top: 5px;
         margin-bottom: 5px;
         width: 2px;
         background-color: black;
     }
-    a{
+    a {
         padding-left: 8px;
         padding-right: 8px;
         opacity: 0.6;
-        span{
+        span {
             color: black;
             background: inherit;
         }
     }
-    a:hover{
+    a:hover {
         opacity: 1;
         background-color: rgb(173, 167, 136);
     }
-    a:hover:nth-child(1){
+    a:hover:nth-child(1) {
         border-top-left-radius: 25px;
         border-bottom-left-radius: 25px;
     }
-    a:hover:nth-child(3){
+    a:hover:nth-child(3) {
         border-top-right-radius: 25px;
         border-bottom-right-radius: 25px;
     }
-    &:hover{
-        span{
-        margin: 0px;}
+    &:hover {
+        span {
+            margin: 0px;
+        }
     }
 }
