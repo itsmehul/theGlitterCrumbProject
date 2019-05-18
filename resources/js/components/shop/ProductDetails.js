@@ -4,8 +4,6 @@ import { connect } from "react-redux"
 import _ from "lodash"
 
 const ProductDetails = props => {
-    // console.log(props.product)
-
     const {
         description,
         discount,
@@ -34,20 +32,17 @@ const ProductDetails = props => {
                 <p className="stock">Only {stock} left in stock</p>
                 <p className="name">{name}</p>
                 <div className="tags">
-                    <span>{'fashion'.toUpperCase()}</span>
-                    <span>{'food'.toUpperCase()}</span>
-                    <span>{'travel'.toUpperCase()}</span>
-                    <span>{'dining'.toUpperCase()}</span>
+                    <span>{"fashion".toUpperCase()}</span>
+                    <span>{"food".toUpperCase()}</span>
+                    <span>{"travel".toUpperCase()}</span>
+                    <span>{"dining".toUpperCase()}</span>
                 </div>
                 <p className="description">{description}</p>
                 <div className="available_colors">
                     <p>Colors:</p>
-                    {JSON.parse(available_colors).map((color, i) => {
-                        console.log(color)
-                        return (
-                            <span key={i} style={{ backgroundColor: color }} />
-                        )
-                    })}
+                    {JSON.parse(available_colors).map((color, i) => (
+                        <span key={i} style={{ backgroundColor: color }} />
+                    ))}
                 </div>
                 <div className="available_sizes">
                     <p>Sizes:</p>
@@ -61,21 +56,22 @@ const ProductDetails = props => {
     )
 }
 
+//Get relevant store state
 const mapStateToProps = (state, { location }) => {
     const productId = location.pathname.substring(
         location.pathname.lastIndexOf("/") + 1
     )
-    console.log(state)
 
-    const product = _.find(state.products, "id", productId)
-    console.log(product)
+    const product = _.find(state.productReducer.products, "id", productId)
     return {
         product
     }
 }
 
+//Dispatch relevant actions
 const mapDispatchToProps = {}
 
+//Connect to provider
 export default connect(
     mapStateToProps,
     mapDispatchToProps

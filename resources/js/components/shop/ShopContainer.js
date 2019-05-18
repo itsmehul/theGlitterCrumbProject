@@ -5,7 +5,6 @@ import { connect } from "react-redux"
 
 const ShopContainer = props => {
     if (props.products.length===0) return <div>Loading...</div>
-    console.log(props.products.filter(e=>e.stock===0))
     return (
         <div className="shop_grid">
             {props.products.filter(e=>e.stock>0).map((e, i) => {
@@ -54,7 +53,7 @@ const ShopContainer = props => {
 }
 
 const mapStateToProps = state => ({
-    products:state.products
+    products:state.productReducer.products
 })
 
 const mapDispatchToProps = dispatch => ({
