@@ -18,11 +18,11 @@ class CreateProductsTable extends Migration
             $table->timestamps();
             $table->string('name', 100);
             $table->longText('description');
-            $table->float('price');
+            $table->decimal('price',12,2);
             $table->json('available_colors')->nullable();
             $table->json('available_sizes')->nullable();
-            $table->float('discount');
-            $table->string('image');
+            $table->float('discount',3,2)->nullable();
+            $table->json('image');
             $table->bigInteger('stock');
         });
     }

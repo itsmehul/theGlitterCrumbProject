@@ -17,9 +17,9 @@ class CreateOrderDetailsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->integer('quantity_ordered');
-            $table->float('price');
-            $table->float('discount')->nullable();
-            $table->float('total');
+            $table->decimal('price',12,2);
+            $table->float('discount',3,2)->nullable();
+            $table->decimal('total',12,2);
             $table->json('size')->nullable();
             $table->json('color')->nullable();
 

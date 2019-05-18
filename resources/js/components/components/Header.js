@@ -5,11 +5,10 @@ import { NavLink, withRouter } from "react-router-dom"
 
 class Header extends Component {
     render() {
-        console.log(this.props)
         return (
             <div>
                 <div className="title">theGlitterCrumb
-                <span>{(this.props.location.pathname==="/shop")?'Shop':'Blog'}</span>
+                <span>{(/shop/.test(this.props.location.pathname))?'Shop':'Blog'}</span>
                 </div>
                 <div className="main_nav">
                     <NavLink

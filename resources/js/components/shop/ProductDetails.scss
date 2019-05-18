@@ -1,0 +1,116 @@
+.product_details_wrapper {
+    font-family: "Lato", sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    .product_preview {
+        width: 448px;
+        height: 547px;
+        margin-right: 2em;
+        .product_thumnail {
+            width: 100%;
+            height: 406px;
+            margin-bottom: 10px;
+            background-size: "cover";
+            background-position: center;
+            -webkit-box-shadow: 11px 3px 27px -11px rgba(0, 0, 0, 0.59);
+            -moz-box-shadow: 11px 3px 27px -11px rgba(0, 0, 0, 0.59);
+            box-shadow: 11px 3px 27px -11px rgba(0, 0, 0, 0.59);
+        }
+        .product_thumnail--list {
+            width: 100%;
+            height: 75px;
+            // background-color: blue;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            span {
+                width: 64px;
+                height: 100%;
+                background-size: "cover";
+                background-position: center;
+                margin-right: 5px;
+                display: inline-block;
+            }
+            // display: flex;
+        }
+    }
+    .product_details {
+        width: 398px;
+        padding: 15px;
+        height: 547px;
+        // background-color: yellow;
+        .price {
+            font-family: "Lora", serif;
+            font-size: 65px;
+            color: #000000;
+            line-height: 1;
+        }
+        .stock {
+            font-size: 15px;
+            font-style: italic;
+            color: red;
+        }
+        .name {
+            font-size: 30px;
+            line-height: 1;
+        }
+        .tags {
+            margin-bottom: 6px;
+            span {
+                font-size: 10px;
+                display: inline-block;
+                font-style: bold;
+                line-height: 2;
+                color: white;
+                text-align: center;
+                border-radius: 50px 50px 50px 50px;
+                padding-left: 8px;
+                padding-right: 8px;
+                margin-left: 8px;
+
+                background: #8e2de2; /* fallback for old browsers */
+                background: -webkit-linear-gradient(
+                    to right,
+                    #4a00e0,
+                    #8e2de2
+                ); /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(
+                    to right,
+                    #4a00e0,
+                    #8e2de2
+                ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            }
+        }
+        .description {
+            font-family: "Lora", serif;
+            font-size: 14px;
+        }
+        .available_colors {
+            font-size: 20px;
+            span {
+                width: 64px;
+                height: 64px;
+                display: inline-block;
+                margin-right: 5px;
+                // background-color: grey;
+            }
+        }
+        .available_sizes {
+            font-size: 20px;
+            span {
+                width: 34px;
+                height: 34px;
+                margin-right: 5px;
+                display: inline-block;
+                text-align: center;
+                // background-color: grey;
+                border: 2px solid black;
+            }
+        }
+        .delivery_info {
+            font-size: 20px;
+        }
+    }
+}
