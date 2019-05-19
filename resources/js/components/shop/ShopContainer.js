@@ -2,6 +2,7 @@ import React from "react"
 import "./ShopContainer.scss"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
+import AnimatedImage from "../components/AnimatedImage";
 
 const ShopContainer = props => {
     if (props.products.length===0) return <div>Loading...</div>
@@ -15,8 +16,8 @@ const ShopContainer = props => {
                         className="product_card"
                         style={{ width: "320px", height: "280px" }}>
                         <div className="thumbnail">
-                            <div
-                                style={{ backgroundImage: `url(${JSON.parse(e.image)[0]})` }}
+                            <AnimatedImage
+                                src={JSON.parse(e.image)[0]}
                             />
                         </div>
                         <div className="product_card_body">

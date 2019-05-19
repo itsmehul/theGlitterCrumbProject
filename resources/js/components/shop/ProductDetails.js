@@ -2,6 +2,8 @@ import React from "react"
 import "./ProductDetails.scss"
 import { connect } from "react-redux"
 import _ from "lodash"
+import { useSpring, animated } from "react-spring"
+import AnimatedImage from "../components/AnimatedImage";
 
 const ProductDetails = props => {
     const {
@@ -14,18 +16,30 @@ const ProductDetails = props => {
         available_colors,
         available_sizes
     } = props.product
+
+    const Sprops = useSpring({
+        to: async (next, cancel) => {
+            await next({ opacity: 1, color: "#ffaaee" })
+            // await next({ opacity: 0, color: "rgb(14,26,19)" })
+        },
+        from: { opacity: 0, color: "red" }
+    })
+
     return (
         <div className="product_details_wrapper">
             <div className="product_preview">
-                <div
-                    className="product_thumnail"
-                    style={{ backgroundImage: `url(${JSON.parse(image)[0]})` }}
-                />
-                <div className="product_thumnail--list">
-                    {JSON.parse(image).map((e, i) => {
-                        return <span style={{ backgroundImage: `url(${e})` }} />
-                    })}
-                </div>
+                <AnimatedImage src={JSON.parse(image)[0]} className='product_thumnail'/>
+                <animated.div style={Sprops}>
+                    <div className="product_thumnail--list">
+                        {JSON.parse(image).map((e, i) => {
+                            return (
+                                <AnimatedImage
+                                    src={e}
+                                />
+                            )
+                        })}
+                    </div>
+                </animated.div>
             </div>
             <div className="product_details">
                 <p className="price">₹{price}</p>
