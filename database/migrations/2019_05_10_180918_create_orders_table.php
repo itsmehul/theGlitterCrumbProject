@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->decimal('total',12,2);
             $table->decimal('saved',12,2);
             $table->boolean('tx_status')->nullable();
-            $table->integer('tx_id')->nullable();
+            $table->decimal('tx_id',36,0)->nullable();
             $table->mediumText('err_mssg');
             $table->dateTime('payment_date');
 

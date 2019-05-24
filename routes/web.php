@@ -11,7 +11,11 @@
 |
 */
 
+//laravel static routes on top
+Route::view('/paytm-merchant-form', 'paytm-merchant-form');
+Route::post('/paytm-callback', 'API\OrderController@paytmCallback');
 
+//React-router routes
 Route::get('/{page?}', function () {
     return view('welcome');
 });
@@ -22,4 +26,3 @@ Route::get('/shop/{id?}', function () {
 
 //FIXME: This callback may need to be in api.php
 //Paytm callback url
-Route::post('/paytm-callback', 'API\OrderController@paytmCallback');

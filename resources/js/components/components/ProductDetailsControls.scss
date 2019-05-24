@@ -1,0 +1,199 @@
+.main {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-right: 5px;
+
+}
+@mixin fontSizing() {
+    p,span{
+        font-size: 20px;
+    }
+}
+
+/* Hide the default checkbox */
+input[type="checkbox"] {
+    visibility: hidden;
+}
+.available_colors {
+    @include fontSizing;
+
+    /* Creating a custom checkbox
+    based on demand */
+    .color_span_checkbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        -webkit-box-shadow: inset 0px -8px 27px -10px rgba(0, 0, 0, 1);
+        -moz-box-shadow: inset 0px -8px 27px -10px rgba(0, 0, 0, 1);
+        box-shadow: inset 0px -8px 27px -10px rgba(0, 0, 0, 1);
+    }
+
+    /* Specify the background color to be
+    shown when hovering over checkbox */
+    .main:hover input ~ .color_span_checkbox {
+        background-color: yellow;
+    }
+
+    /* Specify the background color to be
+    shown when checkbox is active */
+    .main input:active ~ .color_span_checkbox {
+        opacity: 1;
+        filter: grayscale(100%);
+    }
+
+    /* Specify the background color to be
+    shown when checkbox is checked */
+    .main input:checked ~ .color_span_checkbox {
+        box-shadow: none;
+    }
+
+    /* Checkmark to be shown in checkbox */
+    /* It is not be shown when not checked */
+    .color_span_checkbox:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Display checkmark when checked */
+    .main input:checked ~ .color_span_checkbox:after {
+        display: block;
+    }
+
+    /* Styling the checkmark using webkit */
+    /* Rotated the rectangle by 45 degree and
+    showing only two border to make it look
+    like a tickmark */
+    .main .color_span_checkbox:after {
+        left: 8px;
+        bottom: 5px;
+        width: 6px;
+        height: 12px;
+        border: solid white;
+        border-width: 0 4px 4px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+.available_sizes {
+    @include fontSizing;
+
+    span {
+        width: 34px;
+        height: 34px;
+        margin-right: 5px;
+        display: inline-block;
+        text-align: center;
+        // background-color: grey;
+        border: 2px solid black;
+    }
+
+    /* Creating a custom checkbox
+    based on demand */
+    .size_span_checkbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Specify the background color to be
+    shown when hovering over checkbox */
+    .main:hover input ~ .size_span_checkbox {
+        background: white;
+    }
+
+    /* Specify the background color to be
+    shown when checkbox is active */
+    .main input:active ~ .size_span_checkbox {
+        background: white;
+    }
+
+    /* Specify the background color to be
+    shown when checkbox is checked */
+    .main input:checked ~ .size_span_checkbox {
+        background: black;
+        color: white;
+    }
+}
+.quantity {
+    @include fontSizing;
+    margin-top: 1em;
+    $track-w: 12.5em;
+    $track-h: 0.25em;
+    $thumb-d: 1.5em;
+
+    @mixin track() {
+        box-sizing: border-box;
+        border: none;
+        width: $track-w;
+        height: $track-h;
+        background: #ccc;
+    }
+
+    @mixin thumb() {
+        box-sizing: border-box;
+        border: none;
+        width: $thumb-d;
+        height: $thumb-d;
+        border-radius: 50%;
+        background: black;
+    }
+
+    [type="range"] {
+        &,
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+        }
+
+        margin: 0;
+        padding: 0;
+        width: $track-w;
+        height: $thumb-d;
+        background: transparent;
+        font: 1em/1 arial, sans-serif;
+
+        &::-webkit-slider-runnable-track {
+            @include track;
+        }
+        &::-moz-range-track {
+            @include track;
+        }
+        &::-ms-track {
+            @include track;
+        }
+
+        &::-webkit-slider-thumb {
+            margin-top: 0.5 * ($track-h - $thumb-d);
+            @include thumb;
+        }
+        &::-moz-range-thumb {
+            @include thumb;
+        }
+        &::-ms-thumb {
+            margin-top: 0;
+            @include thumb;
+        }
+
+        &::-ms-tooltip {
+            display: none;
+        }
+    }
+
+    label{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.delivery_info {
+    @include fontSizing;
+    font-size: 20px;
+}

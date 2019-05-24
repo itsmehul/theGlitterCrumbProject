@@ -47,15 +47,16 @@ class OrderController extends Controller
         //TODO: cust_id should be passed from auth() middleware
         $order->customer()->associate($request->customer_id)->save();
 
+        //order_details from request convert to json
+        $req_order_details = json_decode($request->order_details);
 
-
-        //order_details from request
-        $req_order_details = $request->order_details;
         //to find 'total' and 'saved' for order
         $market_total=0;
         $paid_total=0;
         #TODO: Test saveMany()
         foreach ($req_order_details as $req_order_detail) {
+            //Allow arr[prop] over arr->prop syntax
+            $req_order_detail     = get_object_vars($req_order_detail);
             //product instance used to get discount,price,values and to associate order_detail instance
             $product = Product::find($req_order_detail['product_id']);
             //order_detail instance
@@ -64,8 +65,8 @@ class OrderController extends Controller
             $order_detail->price = $product->price;
             $order_detail->discount = $product->discount;
             $order_detail->total = $product->price*$product->discount*$req_order_detail['quantity_ordered'];
-            $order_detail->size = $req_order_detail['size'];
-            $order_detail->color = $req_order_detail['color'];
+            $order_detail->size = json_encode($req_order_detail['size']);
+            $order_detail->color = json_encode($req_order_detail['color']);
             $order_detail->product()->associate($product->id);
             $order_detail->order()->associate($order->id)->save();
 
@@ -82,7 +83,7 @@ class OrderController extends Controller
         $order->saved = number_format($market_total-$paid_total, 2, '.', '');
         $order->save();
 
-        $data_for_request = $this->handlePaytmRequest( $order->order_id, number_format($paid_total, 2, '.', ''));
+        $data_for_request = $this->handlePaytmRequest( $order->id, number_format($paid_total, 2, '.', ''));
         $paytm_txn_url = 'https://securegw-stage.paytm.in/theia/processTransaction';
 	    $paramList = $data_for_request['paramList'];
         $checkSum = $data_for_request['checkSum'];
@@ -463,9 +464,10 @@ class OrderController extends Controller
 
 		if ( 'TXN_SUCCESS' === $request['STATUS'] ) {
 			$tx_id = $request['TXNID'];
-			$order = Order::where( 'order_id', $order_id )->first();
+			$order = Order::where( 'id', $order_id )->first();
 			$order->tx_status = 1;
-			$order->tx_id = $tx_id;
+			$order->tx_id = 214;
+			// $order->tx_id = $tx_id;
 			$order->save();
 			return view( 'order-complete', compact( 'order', 'tx_status' ) );
 

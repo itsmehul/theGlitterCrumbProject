@@ -54,7 +54,7 @@ const ShopContainer = props => {
 }
 
 const mapStateToProps = state => ({
-    products:state.productReducer.products
+    products:state.products
 })
 
 const mapDispatchToProps = dispatch => ({

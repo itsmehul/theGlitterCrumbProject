@@ -6,7 +6,7 @@
     justify-content: center;
     .product_preview {
         width: 448px;
-        height: 547px;
+        // height: 547px;
         margin-right: 2em;
         .product_thumnail {
             width: 100%;
@@ -37,12 +37,81 @@
             }
             // display: flex;
         }
+        .add_to_buttons_wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 1em;
+            transform: scale(0.8);
+            transition: transform 200ms;
+            &:hover {
+                transform: scale(1);
+                transition: transform 200ms;
+            }
+            button {
+                border: none;
+                font-size: 18pt;
+                height: 40px;
+                color: white;
+                &:first-child {
+                    padding-left: 0.7em;
+                    border-radius: 45px 0 0 45px;
+                    background: #11998e; /* fallback for old browsers */
+                    background: -webkit-linear-gradient(
+                        to right,
+                        #38ef7d,
+                        #11998e
+                    ); /* Chrome 10-25, Safari 5.1-6 */
+                    background: linear-gradient(
+                        to right,
+                        #38ef7d,
+                        #11998e
+                    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+                    padding-right: 1.5em;
+                    -webkit-clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+                    clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+                    opacity: 0.7;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+
+                &:last-child {
+                    padding-right: 0.7em;
+                    border-radius: 0 45px 45px 0;
+                    position: relative;
+                    left: -25px;
+                    background: #bc4e9c; /* fallback for old browsers */
+                    background: -webkit-linear-gradient(
+                        to right,
+                        #f80759,
+                        #bc4e9c
+                    ); /* Chrome 10-25, Safari 5.1-6 */
+                    background: linear-gradient(
+                        to right,
+                        #f80759,
+                        #bc4e9c
+                    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+                    -webkit-clip-path: polygon(
+                        31% 0,
+                        100% 0,
+                        100% 100%,
+                        0 100%
+                    );
+                    clip-path: polygon(31% 0, 100% 0, 100% 100%, 0 100%);
+                    padding-left: 1.5em;
+                    opacity: 0.7;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
     }
     .product_details {
         width: 398px;
         padding: 15px;
-        height: 547px;
-        // background-color: yellow;
         .price {
             font-family: "Lora", serif;
             font-size: 65px;
@@ -89,30 +158,6 @@
             font-family: "Lora", serif;
             font-size: 14px;
         }
-        .available_colors {
-            font-size: 20px;
-            span {
-                width: 64px;
-                height: 64px;
-                display: inline-block;
-                margin-right: 5px;
-                // background-color: grey;
-            }
-        }
-        .available_sizes {
-            font-size: 20px;
-            span {
-                width: 34px;
-                height: 34px;
-                margin-right: 5px;
-                display: inline-block;
-                text-align: center;
-                // background-color: grey;
-                border: 2px solid black;
-            }
-        }
-        .delivery_info {
-            font-size: 20px;
-        }
+
     }
 }

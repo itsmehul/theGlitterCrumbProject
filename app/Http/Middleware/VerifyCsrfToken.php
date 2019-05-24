@@ -19,6 +19,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'http://theglittercrumb.test/paytm-callback'
+        'http://localhost:8000/paytm-callback'
     ];
 }

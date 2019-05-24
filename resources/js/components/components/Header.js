@@ -1,14 +1,27 @@
 import React, { Component } from "react"
 import "./Header.scss"
 import { NavLink, withRouter } from "react-router-dom"
-
+import Cart from "../shop/Cart"
 
 class Header extends Component {
     render() {
         return (
             <div>
-                <div className="title">theGlitterCrumb
-                <span>{(/shop/.test(this.props.location.pathname))?'Shop':'Blog'}</span>
+                <div className="title_wrapper">
+                    <p
+                        style={{
+                            fontFamily: `"Lobster Two", 'cursive'`
+                        }}>
+                        theGlitterCrumb
+                        <span>
+                            {/shop/.test(this.props.location.pathname)
+                                ? "Shop"
+                                : "Blog"}
+                        </span>
+                    </p>
+                    {/shop/.test(this.props.location.pathname)
+                                ? <Cart />
+                                : null}
                 </div>
                 <div className="main_nav">
                     <NavLink
@@ -48,4 +61,4 @@ class Header extends Component {
     }
 }
 
-export default withRouter(Header);
+export default withRouter(Header)

@@ -1,11 +1,56 @@
-import React from "react"
+import React, { useState } from "react"
 import "./ProductDetails.scss"
 import { connect } from "react-redux"
 import _ from "lodash"
-import { useSpring, animated } from "react-spring"
-import AnimatedImage from "../components/AnimatedImage";
+import AnimatedImage from "../components/AnimatedImage"
+import { _addToCart } from "../actions"
+import ProductDetailsControls from "../components/ProductDetailsControls"
 
 const ProductDetails = props => {
+    const [product, updateProduct] = useState({
+        ...props.product,
+        colors_chosen: [JSON.parse(props.product.available_colors)[0]],
+        sizes_chosen: [JSON.parse(props.product.available_sizes)[0]],
+        quantity_chosen: 1
+    })
+
+    const changeSize = e => {
+        let sizes_chosen
+        if (_.find(product.sizes_chosen, color => color === e.target.value)) {
+            sizes_chosen = product.sizes_chosen.filter(
+                color => color !== e.target.value
+            )
+        } else {
+            sizes_chosen = [...product.sizes_chosen, e.target.value]
+        }
+        updateProduct({
+            ...product,
+            sizes_chosen
+        })
+    }
+
+    const changeColor = e => {
+        let colors_chosen
+        if (_.find(product.colors_chosen, color => color === e.target.value)) {
+            colors_chosen = product.colors_chosen.filter(
+                color => color !== e.target.value
+            )
+        } else {
+            colors_chosen = [...product.colors_chosen, e.target.value]
+        }
+        updateProduct({
+            ...product,
+            colors_chosen
+        })
+    }
+
+    const changeQuantity = (e) => {
+        updateProduct({
+            ...product,
+            quantity_chosen:parseInt(e.target.value)
+        })
+    }
+
     const {
         description,
         discount,
@@ -17,29 +62,26 @@ const ProductDetails = props => {
         available_sizes
     } = props.product
 
-    const Sprops = useSpring({
-        to: async (next, cancel) => {
-            await next({ opacity: 1, color: "#ffaaee" })
-            // await next({ opacity: 0, color: "rgb(14,26,19)" })
-        },
-        from: { opacity: 0, color: "red" }
-    })
-
     return (
         <div className="product_details_wrapper">
             <div className="product_preview">
-                <AnimatedImage src={JSON.parse(image)[0]} className='product_thumnail'/>
-                <animated.div style={Sprops}>
-                    <div className="product_thumnail--list">
-                        {JSON.parse(image).map((e, i) => {
-                            return (
-                                <AnimatedImage
-                                    src={e}
-                                />
-                            )
-                        })}
-                    </div>
-                </animated.div>
+                <AnimatedImage
+                    src={JSON.parse(image)[0]}
+                    className="product_thumnail"
+                />
+                <div className="product_thumnail--list">
+                    {JSON.parse(image).map((e, i) => {
+                        return <AnimatedImage key={i} src={e} />
+                    })}
+                </div>
+                <div className="add_to_buttons_wrapper">
+                    <button onClick={() => props.addToCart(product)}>
+                        <i className="fa fa-cart-plus" aria-hidden="true" />
+                    </button>
+                    <button>
+                        <i className="fa fa-heart" aria-hidden="true" />
+                    </button>
+                </div>
             </div>
             <div className="product_details">
                 <p className="price">₹{price}</p>
@@ -52,19 +94,13 @@ const ProductDetails = props => {
                     <span>{"dining".toUpperCase()}</span>
                 </div>
                 <p className="description">{description}</p>
-                <div className="available_colors">
-                    <p>Colors:</p>
-                    {JSON.parse(available_colors).map((color, i) => (
-                        <span key={i} style={{ backgroundColor: color }} />
-                    ))}
-                </div>
-                <div className="available_sizes">
-                    <p>Sizes:</p>
-                    {JSON.parse(available_sizes).map(size => (
-                        <span>{size}</span>
-                    ))}
-                </div>
-                <div className="delivery_info">Delivery Info</div>
+                <div className="controls" />
+                <ProductDetailsControls
+                    changeColor={changeColor}
+                    changeSize={changeSize}
+                    changeQuantity={changeQuantity}
+                    product={product}
+                />
             </div>
         </div>
     )
@@ -76,14 +112,17 @@ const mapStateToProps = (state, { location }) => {
         location.pathname.lastIndexOf("/") + 1
     )
 
-    const product = _.find(state.productReducer.products, "id", productId)
+    const product = _.find(state.products, "id", productId)
     return {
-        product
+        product,
+        cart: state.cart
     }
 }
 
 //Dispatch relevant actions
-const mapDispatchToProps = {}
+const mapDispatchToProps = dispatch => ({
+    addToCart: product => dispatch(_addToCart(product))
+})
 
 //Connect to provider
 export default connect(
