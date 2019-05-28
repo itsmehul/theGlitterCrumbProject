@@ -9,7 +9,7 @@ import {
     Redirect,
     __RouterContext
 } from "react-router-dom"
-import "./index.css"
+import "./index.scss"
 import Blog from "./blog/Blog"
 import ProductDetails from "./shop/ProductDetails"
 import { rootReducer } from "./reducers"
@@ -48,7 +48,9 @@ const Index = () => {
             {pageTransition.map(({ item, props, key }) => (
                 <animated.div
                     key={key}
-                    style={{ ...props, position: "absolute", width: "100%" }}>
+                    style={{ ...props, position: "absolute", width: "100%" }}
+                    >
+
                     <Switch location={item}>
                         <Route
                             exact

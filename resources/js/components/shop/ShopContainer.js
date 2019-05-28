@@ -1,5 +1,5 @@
 import React from "react"
-import "./ShopContainer.scss"
+// import "./ShopContainer.scss"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import AnimatedImage from "../components/AnimatedImage";
@@ -7,7 +7,7 @@ import AnimatedImage from "../components/AnimatedImage";
 const ShopContainer = props => {
     if (props.products.length===0) return <div>Loading...</div>
     return (
-        <div className="shop_grid">
+        <div className="container shop_grid">
             {props.products.filter(e=>e.stock>0).map((e, i) => {
                 return (
                     <Link
@@ -25,7 +25,6 @@ const ShopContainer = props => {
                             <div>
                                 {e.discount < 1 ? (
                                     <React.Fragment>
-                                        <p>
                                             <span
                                                 style={{
                                                     textDecoration:
@@ -33,8 +32,6 @@ const ShopContainer = props => {
                                                 }}>
                                                 ₹{e.price}
                                             </span>
-                                            {/* <span style={{backgroundColor:'red'}}>-{Math.trunc((1-e.discount)*100)}%OFF</span> */}
-                                        </p>
                                         <p style={{ fontWeight: "bold" }}>
                                             ₹{(e.discount * e.price).toFixed(2)}
                                         </p>

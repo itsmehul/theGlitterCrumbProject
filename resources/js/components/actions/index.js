@@ -4,7 +4,10 @@ import axios from "axios"
 //Actions and action creators
 const getProducts = createAction("GET_PRODUCTS")
 const addToCart = createAction("ADD_TO_CART")
-const reduceStock = createAction("REDUCE_STOCK")
+export const removeFromCart = createAction("REMOVE_FROM_CART")
+export const toggleShowModal = createAction("TOGGLE_SHOW_MODAL")
+export const changeQuantity = createAction("CHANGE_QUANTITY")
+
 
 //Thunk action creators
 export const fetchProducts = () => async dispatch => {

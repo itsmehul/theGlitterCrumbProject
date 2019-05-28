@@ -55,16 +55,16 @@
                 &:first-child {
                     padding-left: 0.7em;
                     border-radius: 45px 0 0 45px;
-                    background: #11998e; /* fallback for old browsers */
+                    background: #8e2de2; /* fallback for old browsers */
                     background: -webkit-linear-gradient(
                         to right,
-                        #38ef7d,
-                        #11998e
+                        #4a00e0,
+                        #8e2de2
                     ); /* Chrome 10-25, Safari 5.1-6 */
                     background: linear-gradient(
                         to right,
-                        #38ef7d,
-                        #11998e
+                        #4a00e0,
+                        #8e2de2
                     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
                     padding-right: 1.5em;
@@ -114,7 +114,7 @@
         padding: 15px;
         .price {
             font-family: "Lora", serif;
-            font-size: 65px;
+            font-size: 35px;
             color: #000000;
             line-height: 1;
         }
@@ -128,7 +128,7 @@
             line-height: 1;
         }
         .tags {
-            margin-bottom: 6px;
+            margin-bottom: 1em;
             span {
                 font-size: 10px;
                 display: inline-block;
@@ -158,6 +158,5 @@
             font-family: "Lora", serif;
             font-size: 14px;
         }
-
     }
 }

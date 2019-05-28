@@ -1,0 +1,23 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: $text-color;
+  font: normal 125% / 1.4 $text-font-stack;
+}
+
+.brand{
+    font-family: "Lobster", cursive;
+}
+
+.heading{
+    font-family: "Lato", sans-serif;
+}
+
+.subtitle{
+    font-family: "Lato", sans-serif;
+}
+
+.description{
+    font-family: "Lora", serif;
+}

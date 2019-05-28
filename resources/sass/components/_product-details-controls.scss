@@ -17,6 +17,10 @@
 input[type="checkbox"] {
     visibility: hidden;
 }
+
+input[type="radio"] {
+    visibility: hidden;
+}
 .available_colors {
     @include fontSizing;
 
@@ -91,7 +95,7 @@ input[type="checkbox"] {
         display: inline-block;
         text-align: center;
         // background-color: grey;
-        border: 2px solid black;
+        border: 2px solid $accent-color;
     }
 
     /* Creating a custom checkbox
@@ -119,7 +123,7 @@ input[type="checkbox"] {
     /* Specify the background color to be
     shown when checkbox is checked */
     .main input:checked ~ .size_span_checkbox {
-        background: black;
+        background: $accent-color;
         color: white;
     }
 }
@@ -144,7 +148,7 @@ input[type="checkbox"] {
         width: $thumb-d;
         height: $thumb-d;
         border-radius: 50%;
-        background: black;
+        background: $accent-color;
     }
 
     [type="range"] {
@@ -197,3 +201,4 @@ input[type="checkbox"] {
     @include fontSizing;
     font-size: 20px;
 }
+

@@ -9,15 +9,15 @@ export default handleActions(
                 return [...action.payload]
             }
         },
-        REDUCE_STOCK: (state, action) => {
-            //Test if payload returns an error
-            if (!(action.payload instanceof Error)) {
+        // REDUCE_STOCK: (state, action) => {
+        //     //Test if payload returns an error
+        //     if (!(action.payload instanceof Error)) {
 
-                console.log(_.find(state,['id',1]))
+        //         console.log(_.find(state,['id',1]))
 
-                return [...action.payload]
-            }
-        },
+        //         return [...action.payload]
+        //     }
+        // },
 
     },
     []

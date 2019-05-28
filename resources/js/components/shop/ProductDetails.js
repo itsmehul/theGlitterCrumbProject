@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import "./ProductDetails.scss"
 import { connect } from "react-redux"
 import _ from "lodash"
 import AnimatedImage from "../components/AnimatedImage"
@@ -7,6 +6,9 @@ import { _addToCart } from "../actions"
 import ProductDetailsControls from "../components/ProductDetailsControls"
 
 const ProductDetails = props => {
+
+    const [bigImage,setbigImage] = useState(0)
+
     const [product, updateProduct] = useState({
         ...props.product,
         colors_chosen: [JSON.parse(props.product.available_colors)[0]],
@@ -15,17 +17,9 @@ const ProductDetails = props => {
     })
 
     const changeSize = e => {
-        let sizes_chosen
-        if (_.find(product.sizes_chosen, color => color === e.target.value)) {
-            sizes_chosen = product.sizes_chosen.filter(
-                color => color !== e.target.value
-            )
-        } else {
-            sizes_chosen = [...product.sizes_chosen, e.target.value]
-        }
         updateProduct({
             ...product,
-            sizes_chosen
+            sizes_chosen: [e.target.value]
         })
     }
 
@@ -53,25 +47,22 @@ const ProductDetails = props => {
 
     const {
         description,
-        discount,
         image,
         name,
         price,
         stock,
-        available_colors,
-        available_sizes
     } = props.product
 
     return (
-        <div className="product_details_wrapper">
+        <div className="container product_details_wrapper">
             <div className="product_preview">
                 <AnimatedImage
-                    src={JSON.parse(image)[0]}
+                    src={JSON.parse(image)[bigImage]}
                     className="product_thumnail"
                 />
                 <div className="product_thumnail--list">
                     {JSON.parse(image).map((e, i) => {
-                        return <AnimatedImage key={i} src={e} />
+                        return <AnimatedImage key={i} src={e} onClick={()=>setbigImage(i)} style={{cursor:'pointer'}}/>
                     })}
                 </div>
                 <div className="add_to_buttons_wrapper">
@@ -106,7 +97,6 @@ const ProductDetails = props => {
     )
 }
 
-//Get relevant store state
 const mapStateToProps = (state, { location }) => {
     const productId = location.pathname.substring(
         location.pathname.lastIndexOf("/") + 1
@@ -119,12 +109,10 @@ const mapStateToProps = (state, { location }) => {
     }
 }
 
-//Dispatch relevant actions
 const mapDispatchToProps = dispatch => ({
     addToCart: product => dispatch(_addToCart(product))
 })
 
-//Connect to provider
 export default connect(
     mapStateToProps,
     mapDispatchToProps

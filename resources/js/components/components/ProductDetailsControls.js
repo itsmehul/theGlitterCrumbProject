@@ -1,5 +1,4 @@
 import React from "react"
-import "./ProductDetailsControls.scss"
 
 const ProductDetailsControls = ({
     changeColor,
@@ -38,7 +37,8 @@ const ProductDetailsControls = ({
                     <label key={i} class="main">
                         <input
                             defaultChecked={i === 0 ? true : false}
-                            type="checkbox"
+                            type="radio"
+                            name="size"
                             value={size}
                             onChange={e => changeSize(e)}
                         />
@@ -46,23 +46,24 @@ const ProductDetailsControls = ({
                     </label>
                 ))}
             </div>
+
             <div className="quantity">
                 <p>Quantity:</p>
                 <label>
-                <input
-                    type="range"
-                    name=""
-                    id=""
-                    onMouseUp={e => changeQuantity(e)}
-                    defaultValue="1"
-                    min="1"
-                    max={stock}
-                    step="1"
-                />
-                <span>{quantity_chosen}</span>
+                    <input
+                        type="range"
+                        name=""
+                        id=""
+                        onMouseUp={e => changeQuantity(e)}
+                        defaultValue="1"
+                        min="1"
+                        max={stock}
+                        step="1"
+                    />
+                    <span>{quantity_chosen}</span>
                 </label>
             </div>
-            <div className="delivery_info">Delivery Info</div>
+            {/* <div className="delivery_info">Delivery Info</div> */}
         </React.Fragment>
     )
 }

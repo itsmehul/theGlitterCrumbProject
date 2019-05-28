@@ -1,0 +1,62 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.btn {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid $red;
+    border-radius: 0.6em;
+    color: $red;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    // margin: 20px;
+    padding: 0.8em 2.4em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      outline: 0;
+    }
+  }
+
+  .border-fill {
+    border-color: $brand-color;
+    // border: 0;
+    border-radius: 0;
+    color: $brand-color;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 150ms ease-in-out;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 100%;
+      background: $brand-color;
+      z-index: -1;
+      transition: width 150ms ease-in-out;
+    }
+
+    &:hover {
+      color: #fff;
+      &:after {
+        width: 110%;
+      }
+    }
+  }

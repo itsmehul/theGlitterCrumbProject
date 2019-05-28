@@ -1,0 +1,54 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+header {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    color: $brand-color;
+    padding-top: 1vw;
+    p {
+        font-family: "Lobster Two", cursive;
+        text-align: center;
+        font-size: 40px;
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+    font-size: 13px!important;
+
+    span{
+        width: 1em;
+    }
+    a {
+        border: 3px solid transparent;
+        padding-left: 8px;
+        padding-right: 8px;
+        opacity: 0.6;
+        font-weight: lighter;
+        color: $brand-color;
+
+        // color: $dark-grey;
+        span {
+            color: inherit;
+            background: inherit;
+        }
+
+    }
+    a:hover {
+        opacity: 1;
+        background-color: rgb(173, 167, 136);
+        border-radius: 25px;
+        color: $accent-color;
+    }
+
+}
+
+// .sticky{
+//     position: sticky;
+//     position: -webkit-sticky;
+//     top: 0;
+// }
