@@ -44,6 +44,7 @@ This is an E-commerce website made for my friend who is a blogger. The color and
 
 **Install react dependencies and start local server at localhost:8000**
 
+ - Run `npm install`
  - Run `npm run dev`
  - Run  `php artisan serve`
 
