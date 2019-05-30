@@ -21,10 +21,11 @@ This is an E-commerce website made for my friend who is a blogger. The color and
 ## Getting Started
 
 ### 💉Prerequisites
-- Download composer  [https://getcomposer.org/download/](https://getcomposer.org/download/)
+- Download and Install composer  [https://getcomposer.org/download/](https://getcomposer.org/download/)
 - Download and Install wamp
 	- For windows: [https://bitnami.com/stack/wamp/installer](https://bitnami.com/stack/wamp/installer)
-- Download nodejs https://nodejs.org/en/
+- Download and Install nodejs https://nodejs.org/en/
+- Download and Install php 7.1^
 
 
 ### 📐Installing
