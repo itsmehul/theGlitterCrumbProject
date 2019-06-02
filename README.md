@@ -2,6 +2,8 @@
 
 This is an E-commerce website made for my friend who is a blogger. The color and typography chosen were inspired from her styles at [https://theglittercrumb.com/](https://theglittercrumb.com/)
 
+Find the project video here: https://www.youtube.com/watch?v=SRYuvUqkQzs&feature=youtu.be
+
 **📝Todo**
 
  - [x] Design shop template
