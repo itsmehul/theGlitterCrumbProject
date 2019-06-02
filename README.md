@@ -21,9 +21,11 @@ This is an E-commerce website made for my friend who is a blogger. The color and
 ## Getting Started
 
 ### 💉Prerequisites
-- Download composer  [https://getcomposer.org/download/](https://getcomposer.org/download/)
+- Download and Install composer  [https://getcomposer.org/download/](https://getcomposer.org/download/)
 - Download and Install wamp
 	- For windows: [https://bitnami.com/stack/wamp/installer](https://bitnami.com/stack/wamp/installer)
+- Download and Install nodejs https://nodejs.org/en/
+- Download and Install php 7.1^
 
 
 ### 📐Installing
@@ -42,6 +44,7 @@ This is an E-commerce website made for my friend who is a blogger. The color and
 
 **Install react dependencies and start local server at localhost:8000**
 
+ - Run `npm install`
  - Run `npm run dev`
  - Run  `php artisan serve`
 
