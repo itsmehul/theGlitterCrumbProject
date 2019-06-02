@@ -175,7 +175,8 @@ const Cart = props => {
                     aria-hidden="true"
                 />
             </div>
-            <Modal width={600}>{cart}</Modal>
+            {(props.cart.products.length!==0)?<Modal width={600}>{cart}</Modal>:<Modal width={600}><h1>Cart is empty</h1></Modal>}
+
         </div>
     )
 }

@@ -73600,10 +73600,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_spring__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-spring */ "./node_modules/react-spring/web.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -73638,9 +73634,7 @@ var AnimatedImage = function AnimatedImage(_ref) {
     src: src,
     alt: ""
   }, rest, {
-    style: _objectSpread({
-      props: props
-    }, style),
+    style: props,
     onLoad: function onLoad() {
       setTimeout(function () {
         return set({
@@ -74355,9 +74349,11 @@ var Cart = function Cart(props) {
     },
     className: "fa fa-cart-arrow-down",
     "aria-hidden": "true"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Modal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  })), props.cart.products.length !== 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Modal__WEBPACK_IMPORTED_MODULE_5__["default"], {
     width: 600
-  }, cart));
+  }, cart) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Modal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    width: 600
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Cart is empty")));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
